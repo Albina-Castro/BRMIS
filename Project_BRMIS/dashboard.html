@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name"><img src=""></div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#" data-section="dashboardSection">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#" data-section="inventorySection">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Inventory</span>
+                </a>
+                <span class="tooltip">Inventory</span>
+            </li>
+            <li>
+                <a href="#" data-section="reservationSection">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Reservation</span>
+                </a>
+                <span class="tooltip">Reservation</span>
+            </li>
+            <li>
+                <a href="#" data-section="newsSection">
+                    <i class='bx bx-news'></i>
+                    <span class="links_name">News & Updates</span>
+                </a>
+                <span class="tooltip">News & Updates</span>
+            </li>
+            <li>
+                <a href="#" data-section="transcriptionSection">
+                    <i class='bx bx-microphone'></i>
+                    <span class="links_name">Transcription</span>
+                </a>
+                <span class="tooltip">Transcription</span>
+            </li>
+            <li>
+                <a href="#" data-section="summarySection">
+                    <i class='bx bx-chart'></i>
+                    <span class="links_name">Summary Report</span>
+                </a>
+                <span class="tooltip">Summary Report</span>
+            </li>
+            <li>
+                <a href="#" data-section="settingsSection">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="assets/img/profile.png" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">Mang Caloy</div>
+                        <div class="job">Brgy Albolards</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out" onclick="showLogoutModal()"></i>
+            </li>
+        </ul>
+    </nav>
+    <main class="home-section">
+        <section id="dashboardSection" class="content-section" style="display: block;">
+            <div class="text">Dashboard</div>
+            <p>Welcome to your dashboard overview.</p>
+        </section>
+        <section id="inventorySection" class="content-section" style="display:none;">
+            <div class="text">Inventory</div>
+            <p>Manage and track your inventory here.</p>
+        </section>
+        <section id="reservationSection" class="content-section" style="display:none;">
+            <div class="text">Reservation</div>
+            <p>View and manage reservations here.</p>
+        </section>
+        <section id="newsSection" class="content-section" style="display:none;">
+            <div class="text">News & Updates</div>
+            <p>Latest news and updates will appear here.</p>
+        </section>
+        <section id="transcriptionSection" class="content-section" style="display:none;">
+            <div class="text">Transcription</div>
+            <p>Access and manage transcriptions here.</p>
+        </section>
+        <section id="summarySection" class="content-section" style="display:none;">
+            <div class="text">Summary Report</div>
+            <p>View summary reports and analytics here.</p>
+        </section>
+        <!-- Settings Section -->
+        <section id="settingsSection" class="content-section" style="display:none;">
+            <div class="text">Settings</div>
+            <div class="settingCard">
+                <button class="accordion-header">Account Settings</button>
+                <div class="accordion-panel">
+                    <p>Manage your account settings and preferences.</p>
+                </div>
+            </div>
+            <div class="settingCard">
+                <button class="accordion-header">Notifications</button>
+                <div class="accordion-panel">
+                    <p>Customize your notification preferences.</p>
+                </div>
+            </div>
+            <div class="settingCard">
+                <button class="accordion-header">Privacy</button>
+                <div class="accordion-panel">
+                    <p>Control your privacy settings and data sharing.</p>
+                </div>
+            </div>
+            <!-- System Settings Button -->
+            <div class="settingCard system-settings-btn-card">
+                <button id="openSystemSettings" class="system-settings-btn">
+                    <i class='bx bx-wrench'></i> System Settings
+                </button>
+            </div>
+            <!-- System Settings Panel (hidden by default) -->
+            <div id="systemSettingsPanel" class="system-settings-panel" style="display:none;">
+                <div class="system-settings-header">
+                    <span>System Settings</span>
+                    <button id="closeSystemSettings" class="close-system-settings">&times;</button>
+                </div>
+                <div class="system-settings-content">
+                    <ul>
+                        <li><strong>Backup & Restore:</strong> Manage data backups and restore points.</li>
+                        <li><strong>System Updates:</strong> Check for and apply updates.</li>
+                        <li><strong>User Management:</strong> Add, remove, or edit user roles.</li>
+                        <li><strong>Logs:</strong> View system logs and activity reports.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button id="confirmLogout" class="confirm-btn">Yes</button>
+                <button id="cancelLogout" class="cancel-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js" defer></script>
+</body>
+
+</html>

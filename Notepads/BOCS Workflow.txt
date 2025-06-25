@@ -1,0 +1,181 @@
+BOCS Workflow 
+
+TITLE: Development of an Integrated Blood Bank Operations and Donor Management System (IBODMS)
+
+Target Users
+- Blood Bank Admins (1st)
+- Blood Bank Technicians (2nd)
+
+=> 1st User UI
+- acct management
+- announcements posting
+- all features inside dashboard
+
+=> 2nd User UI
+- log-in
+- forgot pass
+- all features inside dashboard
+
+________
+
+DB (may nakapaloob na maraming tables for data fetching)
+- account table
+- inventory table 
+- donor table
+- distribution table
+- reservation table
+- transcription table
+
+________
+
+=> Acc Creation (ADMIN UI ONLY)
+- Kay Admin magmumula yung email and temporary pass na activated na
+* email
+* name
+* employee id
+* employee position
+
+=> Login Module (2nd User)
+- log-in
+- forgot pass
+
+=> Dashboard Module
+> Header <
+- burger style (features)
+- home, about us & contact us
+> Body <
+- announcements
+* scheduled blood donation drive
+- reminders
+* list of near expired blood units
+* newly add blood units
+- about us
+- contact us
+- floating accessibility button for barcode registration and scanning
+
+=> Report Generation
+
+________
+
+DATABASE
+
+Account Table
+* email
+* name
+* employee id
+* employee position
+
+Inventory Table (Collection & Stocks)
+* collected unit ID
+* blood unit
+* blood type
+* date collected
+* date expiration
+* donor's name
+
+Donor Table
+* donor ID
+* donor name
+* blood type
+* blood unit
+* age
+* donation date
+* contact number
+* address
+
+Distribution Table
+* distribution unit ID
+* blood unit
+* blood type
+* patient's name
+* patient's ward
+* donor's name
+* donor's ID
+
+Transcription Table
+* transcription ID
+* patient's ID
+* donor name
+* blood unit
+* Collection Date
+* Status
+
+Reservation Table
+* patient's ID
+* patient's name
+* patient's ward
+* blood type
+* blood unit
+* quantity
+* status
+
+Barcode Table
+(generation, registration, and scanning)
+
+
+________
+
+Tasks:
+Chapter 1-3
+30% system (both frontend and backend)
+- login module
+- dashboard module
+- inventory
+
+
+=> 30% System 
+
+starting date: March 17, 2025 - April 22, 2025
+
+Frontend
+- Kilap
+- Louis
+
+Backend/Database
+- Kilap
+- Aira
+
+
+=> Documentation
+
+Head: Aira
+Assistant: Louis
+
+Chapter 1: March 17-22, 2025
+Project Context - Aira
+Objectives of the Study - Louis
+Scope and Limitations of the Study - Tabli
+Significance of the Study - Gabo
+Operational Definition of Terms (Write in alphabetical order) - Tabli and Gabo
+
+Chapter 2: March 24-29, 2025
+Review of Related Literature (Foreign & Local) - Louis, Tabli, and Gabo
+Review of Related Studies (Foreign & Local) - Louis, Tabli, and Gabo
+Synthesis - Tabli and Gabo
+
+Chapter 3: March 31 - April 12, 2025
+Research Method and Design - Louis
+Conceptual Framework of the Study - Aira
+Hardware and Software Requirements - Tabli and Gabo
+> Aira, Kilap <
+Context Diagram
+Data Flow Diagram
+Activity Diagram
+Entity-Relationship Diagram
+Data Dictionary - Aira and Louis
+
+________
+
+TARGET DATE: April 22, 2025
+Defense Preparation: April 23-25, 2025
+Defense Date: April 26, 2025
+
+
+
+
+
+
+
+
+
+

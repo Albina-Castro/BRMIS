@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    background-color: #e4e9f7;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: #11101D;
+    padding: 6px 14px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sidebar .logo-details .logo_name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details,
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: center;
+}
+
+.sidebar i {
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+.sidebar input {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    background: #1d1b31;
+}
+
+.sidebar.open input {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+
+.sidebar .bx-search {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    background: #1d1b31;
+    color: #fff;
+}
+
+.sidebar .bx-search:hover {
+    background: #fff;
+    color: #11101D;
+}
+
+.sidebar.open .bx-search:hover {
+    background: #1d1b31;
+    color: #fff;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #11101D;
+}
+
+.sidebar li a:hover {
+    background: #fff;
+}
+
+.sidebar li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #11101D;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -8px;
+    padding: 10px 14px;
+    background: #1d1b31;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.sidebar.open li.profile {
+    width: 250px;
+}
+
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-right: 10px;border: 2px solid #fff; /* Optional: Add a white border for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.sidebar li.profile .name{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.sidebar li.profile .job {
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #1d1b31;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+}
+.home-section {
+    position: relative;
+    background: #e4e9f7;
+    padding: 32px 40px 32px 60px;
+    min-height: 100vh;
+    margin-left: 78px; /* Use margin-left instead of left */
+    width: calc(100% - 78px); /* Use 100% for flexible layout */
+    transition: margin-left 0.5s, padding-left 0.3s;
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        overflow: hidden;
+    }
+    .sidebar.open {
+        width: 200px;
+    }
+    .home-section {
+        padding: 20px 40px 20px 50px;
+    }
+}
+
+.sidebar.open ~ .home-section {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+
+
+.home-section .text {
+    display: inline-block;
+    color: #11101D;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 18px 0;z-index: 1;
+}
+
+
+/* Active tab styling */
+.nav-list li.active a {
+    background: #fff; /* Highlight the active tab with a white background */
+    color: #11101D; /* Change text color to match the background */
+    border-radius: 12px; /* Add rounded corners for a modern look */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-list li.active a .links_name {
+    color: #11101D; /* Ensure the text inside the active tab is visible */
+}
+
+.nav-list li.active a i {
+    color: #11101D; /* Change the icon color to match the active tab */
+    font-size: 20px; /* Adjust the icon size if needed */
+    transition: all 0.3s ease; /* Smooth transition for icon styling */
+}
+
+.nav-list li.active a:hover {
+    background: #e4e9f7; /* Slightly lighter background on hover */
+    color: #11101D; /* Keep the text color consistent */
+}
+
+.nav-list li.active a:hover i,
+.nav-list li.active a:hover .links_name {
+    color: #11101D; /* Ensure the icon color remains consistent on hover */
+}
+
+/* Default hover styling for non-active tabs */
+.nav-list li a:hover {
+    background: #1d1b31; /* Darker background for hover effect */
+    color: #fff; /* White text color on hover */
+    border-radius: 12px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-list li a:hover i,
+    .nav-list li a:hover .links_name{
+    color: #fff; /* Ensure the icon color matches the hover state */
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal-buttons button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-btn {
+    background: #e63946;
+    color: #fff;
+}
+
+.confirm-btn:hover {
+    background: #d62839;
+}
+
+.cancel-btn {
+    background: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background: #bbb;
+}
+
+/* Add to dashboard.css */
+.system-settings-btn-card {
+    text-align: center;
+    margin-top: 24px;
+}
+.system-settings-btn {
+    background: #3b5998;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.system-settings-btn:hover {
+    background: #2d4373;
+}
+.system-settings-panel {
+    background: #f5f6fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 28px 22px;
+    margin-top: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+.system-settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.close-system-settings {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+.system-settings-content ul {
+    padding-left: 18px;
+}
+.system-settings-content li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.nav-list li.active a {
+    background: #fff;
+}
+
+.nav-list li.active a .links_name,
+.nav-list li.active a i {
+    color: #11101D;
+}
+
+.system-settings-panel {
+    display: none;
+    transition: all 0.3s ease;
+}
+.system-settings-panel.open-panel {
+    display: block;
+}
+
+.content-section {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1;
+}
+.content-section.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar li.profile .tooltip {
+    display: none;
+}
+
+.accordion-header {
+    background-color: #f1f1f1;
+    color: #11101D;
+    cursor: pointer;
+    padding: 14px 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    transition: background 0.2s;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+.accordion-header.active, .accordion-header:hover {
+    background-color: #e0e0e0;
+}
+.accordion-panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 10px;
+}
+
+
